@@ -5,7 +5,7 @@ import { useMutation } from '@tanstack/react-query'
 import { useNavigate } from 'react-router-dom'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
-import axios from 'axios'
+import api from "@/api/axios";
 
 const schema = z.object({
   email: z.string().email()
@@ -14,7 +14,7 @@ const schema = z.object({
 type FormData = z.infer<typeof schema>
 
 const forgotPassword = async (data: FormData) => {
-  const res = await axios.post('/api/auth/forgot-password', data)
+  const res = await api.post('/api/auth/forgot-password', data)
   return res.data
 }
 

@@ -5,7 +5,7 @@ import { useMutation } from "@tanstack/react-query";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button"; // Shadcn
 import { Input } from "@/components/ui/input"; // Shadcn
-import axios from "axios";
+import api from "@/api/axios";
 
 const schema = z
   .object({
@@ -22,7 +22,7 @@ const schema = z
 type FormData = z.infer<typeof schema>;
 
 const registerUser = async (data: FormData) => {
-  const res = await axios.post("/api/auth/register", data);
+  const res = await api.post("/api/auth/register", data);
   return res.data;
 };
 

@@ -5,7 +5,7 @@ import { useMutation } from '@tanstack/react-query'
 import { useNavigate } from 'react-router-dom'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
-import axios from 'axios'
+import api from "@/api/axios";
 import useAuthStore from '../stores/authStore'
 
 const schema = z.object({
@@ -16,7 +16,7 @@ const schema = z.object({
 type FormData = z.infer<typeof schema>
 
 const verifyOtp = async (data: FormData) => {
-  const res = await axios.post('/api/auth/verify-otp', data)
+  const res = await api.post('/api/auth/verify-otp', data)
   return res.data
 }
 
