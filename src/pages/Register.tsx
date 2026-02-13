@@ -38,7 +38,7 @@ const Register = () => {
 
   const mutation = useMutation({
     mutationFn: registerUser,
-    onSuccess: () => navigate("/verify-otp"),
+    onSuccess: () => navigate("/login"),
   });
 
   const onSubmit = (data: FormData) => mutation.mutate(data);
